@@ -11,7 +11,8 @@
 <body>
     <div class="container">
         <div class="logo">
-            <img src="../image/jpnj.png" alt="JPNJ Logo">
+            <c:url value="../resources/image/jpnj.png" var="logoPath" />
+			<img src="${logoPath}" alt="Logo">
         </div>
         <h1>TVPSS</h1>
         <h4>Welcome to our system</h4>

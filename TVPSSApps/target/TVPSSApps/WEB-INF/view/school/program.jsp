@@ -65,7 +65,7 @@
                     <form action="">
                         <td><button id="complete" class="view">Complete</button></td>
                     </form>
-                    <form action="programManage" method="get">
+                    <form action="programView" method="get">
                         <td><button class="view">Open</button></td>
                     </form>    
                 </tr>
@@ -75,7 +75,7 @@
                     <form action="">
                         <td><button id="complete" class="view">Complete</button></td>
                     </form>
-                    <form action="programManage" method="get">
+                    <form action="programView" method="get">
                         <td><button class="view">Open</button></td>
                     </form> 
                 </tr>
@@ -85,7 +85,7 @@
                     <form action="">
                         <td><button id="complete" class="view">Complete</button></td>
                     </form>
-                    <form action="programManage" method="get">
+                    <form action="programView" method="get">
                         <td><button class="view">Open</button></td>
                     </form> 
                 </tr>
