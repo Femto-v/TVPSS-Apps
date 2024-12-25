@@ -8,19 +8,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <%-- <style><%@include file="/resources/style/adminStyle/login.css"%></style> --%>
 </head>
-<body class="grid place-content-center bg-sky-200 text-base">
-    <div class="container grid bg-sky-600 justify-items-center gap-4 rounded text-white">
+<body>
+    <div class="container">
         <div class="logo size-72">
 			<c:url value="/resources/image/jpnj.png" var="logoPath" />
             <img src="${logoPath}" alt="Logo" class="">
 
         </div>
-        <h1 class="font-extrabold text-4xl">TVPSS</h1>
+        <h1 class="font-bold">TVPSS</h1>
         <h4>Welcome to our system</h4>
-        <form action="dashboard" method="get" class="grid place-items-center">
-    		<input type="email" class="p-2 text-xs rounded border border-black" name="email" placeholder="Enter email" required> <br>
-    		<input type="password" class="p-2 text-xs rounded border border-black" name="password" placeholder="Enter password" required> <br>
-    		<button type="submit" class="px-3 py-1 bg-sky-400 rounded font-semibold">Login</button>
+        <form action="dashboard" method="get">
+    		<input type="email" name="email" placeholder="Enter email" required> <br>
+    		<input type="password" name="password" placeholder="Enter password" required> <br>
+    		<button type="submit">Login</button>
 		</form>
     </div>
 </body>

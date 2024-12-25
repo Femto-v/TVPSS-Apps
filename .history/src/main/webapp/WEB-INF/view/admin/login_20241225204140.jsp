@@ -18,9 +18,9 @@
         <h1 class="font-extrabold text-4xl">TVPSS</h1>
         <h4>Welcome to our system</h4>
         <form action="dashboard" method="get" class="grid place-items-center">
-    		<input type="email" class="p-2 text-xs rounded border border-black" name="email" placeholder="Enter email" required> <br>
-    		<input type="password" class="p-2 text-xs rounded border border-black" name="password" placeholder="Enter password" required> <br>
-    		<button type="submit" class="px-3 py-1 bg-sky-400 rounded font-semibold">Login</button>
+    		<input type="email" class="p-2 text-xs rounded border" name="email" placeholder="Enter email" required> <br>
+    		<input type="password" class="p-2 text-xs rounded border" name="password" placeholder="Enter password" required> <br>
+    		<button type="submit" class="px-3 py-1 bg-sky-400 rounded font-extrabold">Login</button>
 		</form>
     </div>
 </body>
