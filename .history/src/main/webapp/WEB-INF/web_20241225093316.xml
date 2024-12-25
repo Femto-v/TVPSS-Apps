@@ -23,11 +23,11 @@
     <servlet-name>default</servlet-name>
     <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
-  </servlet>
+</servlet>
 
-  <servlet-mapping>
+<servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>/resources/*</url-pattern>
-  </servlet-mapping>
+</servlet-mapping>
   
 </web-app>

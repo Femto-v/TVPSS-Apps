@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,23 +12,23 @@
     <div class="header">
         <h1>Manage Role</h1>
         <form action="" class="search-container">
-            <img src="<c:url value='/resources/image/menu.png' />" alt="menu2" class="menu">
+            <img src="/menu.png" alt="Menu Icon" class="menu">
             <input type="search" placeholder="Search">
-            <img src="<c:url value='/resources/image/search.png' />" alt="Search Icon" class="search">
+            <img src="../image/search.png" alt="Search Icon" class="search">
         </form>
         <div class="icon-container">
-            <img src="<c:url value='/resources/image/notif.png' />" alt="Notification Icon" class="notif">
-            <img src="<c:url value='/resources/image/inbox.png' />" alt="inbox" class="inbox">
-            <img src="<c:url value='/resources/image/avatar.png' />" alt="Avatar Icon" class="avatar">
+            <img src="../image/notif.png" alt="Notification Icon" class="notif">
+            <img src="../image/inbox.png" alt="Inbox " class="inbox">
+            <img src="../image/avatar.png" alt="Avatar Icon" class="avatar">
         </div>
     </div>
 
     <div class="sidebar">
         <div class="logo">
-            <img src="<c:url value='/resources/image/kk.png' />" alt="ministry logo"> <br>
+            <img src="../image/kk.png" alt="ministry logo"> <br>
         </div>
         <form action="user" method="get">
-            <button type="submit" class="button button1"><img src="<c:url value='/resources/image/home.png' />" alt="home logo" class="home"> User <img src="<c:url value='/resources/image/arrow.png' />" alt="arrow" class="arrow"></button> <br>
+            <button type="submit" class="button button1"><img src="../image/user.png" alt="home logo" class="home"> User <img src="../image/arrow.png" alt="" class="arrow"></button> <br>
         </form>
     </div>
 

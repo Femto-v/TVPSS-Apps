@@ -29,7 +29,7 @@
             <img src="<c:url value='/resources/image/kk.png' />" alt="ministry logo"> <br>
         </div>
         <form action="user" method="get">
-            <button type="submit" class="button button1"><img src="<c:url value='/resources/image/home.png' />" alt="home logo" class="home"> User <img src="<c:url value='/resources/image/arrow.png' />" alt="arrow" class="arrow"></button> <br>
+            <button type="submit" class="button button1"><img src="<c:url value='/resources/image/user.png' />" alt="home logo" class="home"> User <img src="../image/arrow.png" alt="" class="arrow"></button> <br>
         </form>
     </div>
 
