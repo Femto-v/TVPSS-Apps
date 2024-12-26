@@ -18,8 +18,8 @@
           <img src="resources/image/jpnj.png" alt="Logo" class="size-72">
           <p class="font-extrabold text-4xl">Welcome to tvpss</p>
           <div class="grid place-items-center gap-3">
-               <a class="px-3 py-1 bg-sky-400 text-white w-full rounded text-center" href="/tvpss/login">Login</a>
-               <a class="px-3 py-1 bg-sky-400 text-white w-full rounded text-center" href="/tvpss/login">Signup</a>
+               <a class="px-3 py-1 bg-sky-400 text-white w-full rounded" href="/tvpss/login">Login</a>
+               <a class="px-3 py-1 bg-sky-400 text-white w-full rounded" href="/tvpss/login">Signup</a>
           </div>
           
 

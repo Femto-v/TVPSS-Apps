@@ -13,13 +13,13 @@
 </head>
 <body class="grid place-items-center place-content-center bg-sky-200 h-screen text-white">
 
-     <div class = "container grid bg-sky-600 rounded justify-items-center gap-7 p-7">
+     <div class = "container grid bg-sky-600 rounded justify-items-center gap-3 p-5">
 
           <img src="resources/image/jpnj.png" alt="Logo" class="size-72">
           <p class="font-extrabold text-4xl">Welcome to tvpss</p>
           <div class="grid place-items-center gap-3">
-               <a class="px-3 py-1 bg-sky-400 text-white w-full rounded text-center" href="/tvpss/login">Login</a>
-               <a class="px-3 py-1 bg-sky-400 text-white w-full rounded text-center" href="/tvpss/login">Signup</a>
+               <button class="px-3 py-1 bg-sky-400 text-white w-full">Login</button>
+               <button class="px-3 py-1 bg-sky-400 text-white w-full">Signup</button>
           </div>
           
 
