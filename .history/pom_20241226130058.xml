@@ -28,20 +28,6 @@
         <version>5.3.21</version> <!-- Use the latest stable version -->
     </dependency>
 
-    <!-- orm -->
-    <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-orm</artifactId>
-        <version>5.3.21</version> <!-- or the latest version matching your Spring version -->
-    </dependency>
-
-    <!-- MySQL JDBC Driver -->
-    <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.23</version> <!-- use the version that suits your setup -->
-    </dependency>
-
     <!-- Servlet API (for web applications) -->
     <dependency>
         <groupId>javax.servlet</groupId>

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login TVPSS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <%-- <style><%@include file="/resources/style/adminStyle/login.css"%></style> --%>
 </head>
 <body class="grid place-content-center bg-sky-200 text-base">
     <div class="container grid bg-sky-600 justify-items-center gap-4 rounded text-white">
