@@ -15,11 +15,11 @@
 
         </div>
         <h1 class="font-extrabold text-4xl">TVPSS</h1>
-          <form action="dashboard" method="get" class="grid place-items-center text-black l-40 gap-1">
-               <input type="text" class="text-black p-2 text-xs rounded border border-black" name="firstName" placeholder="Enter first name" required>
-               <input type="text" class="text-black p-2 text-xs rounded border border-black" name="lastName" placeholder="Enter last name" required> 
-               <input type="email" class="text-black p-2 text-xs rounded border border-black" name="email" placeholder="Enter email" required> 
-               <input type="password" class="text-black p-2 text-xs rounded border border-black" name="password" placeholder="Enter password" required><br>
+          <form action="/tvpss/signup" method="post" class="grid place-items-center text-black l-40 gap-1">
+               <input type="text" class="text-black p-2 text-xs rounded border border-black" id="firstName"  name="firstName" placeholder="Enter first name" required>
+               <input type="text" class="text-black p-2 text-xs rounded border border-black" id="lastName" name="lastName" placeholder="Enter last name" required> 
+               <input type="email" class="text-black p-2 text-xs rounded border border-black" id="email" name="email" placeholder="Enter email" required> 
+               <input type="password" class="text-black p-2 text-xs rounded border border-black" id="password" name="password" placeholder="Enter password" required><br>
                <button type="submit" class="px-3 py-1 bg-sky-400 rounded font-semibold text-white">Signup</button>
           </form>
     </div>

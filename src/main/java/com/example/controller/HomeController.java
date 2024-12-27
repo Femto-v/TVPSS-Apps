@@ -12,22 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class HomeController {
 
-
-
-
     @RequestMapping("/homie")
     @ResponseBody()
     public String hometown() {
         return "this is homie";
     }
-
-
-    @RequestMapping("/signup")
-    @ResponseBody()
-    public String signup() {
-        return "this is signup";
-    }
-
 
     @RequestMapping("/admin")
     @ResponseBody()
