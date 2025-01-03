@@ -24,16 +24,16 @@
             <img src="<c:url value='/resources/image/kk.png' />" alt="ministry logo"> <br>
         </div>
         <form action="dashboard" method="get">
-            <button type="submit" class="button button1"><img src="<c:url value='/resources/image/home.png' />" alt="home logo" class="home"> Dashboard <img src="/resources/image/arrow.png" alt="" class="arrow"></button> <br>
+            <button type="submit" class="button button1"><img src="<c:url value='/resources/image/home.png' />" alt="home logo" class="home"> Dashboard <img src="<c:url value='/resources/image/arrow.png' />" alt="" class="arrow"></button> <br>
         </form>
         <form action="library" method="get">
-            <button type="submit" class="button button2"><img src="/resources/image/library.png" alt="" class="library"> Content Library <img src="/resources/image/arrow.png" alt="" class="arrow"></button> <br>
+            <button type="submit" class="button button2"><img src="<c:url value='/resources/image/library.png' />" alt="" class="library"> Content Library <img src="<c:url value='/resources/image/arrow.png' />" alt="" class="arrow"></button> <br>
         </form>
         <form action="report" method="get">
-            <button type="submit" class="button button3"><img src="/resources/image/report.png" alt="" class="report"> Report <img src="/resources/image/arrow.png" alt="" class="arrow"></button>
+            <button type="submit" class="button button3"><img src="<c:url value='/resources/image/report.png' />" alt="" class="report"> Report <img src="<c:url value='/resources/image/arrow.png' />" alt="" class="arrow"></button>
         </form>
         <form action="login" method="get">
-            <button type="submit"  class="button button4"><img src="/resources/image/logout.png" alt="" class="logout"> Logout <img src="/resources/image/arrow.png" alt="" class="arrow"></button>
+            <button type="submit"  class="button button4"><img src="<c:url value='/resources/image/logout.png' />" alt="" class="logout"> Logout <img src="<c:url value='/resources/image/arrow.png' />" alt="" class="arrow"></button>
         </form>
     </div>
 
@@ -42,7 +42,7 @@
             <div class="add-content">
             <div class="box">
                 <div class="content-library">
-                    <img src="/resources/image/uploads.png" alt="" class="live" class="upload-content">
+                    <img src="<c:url value='/resources/image/uploads.png' />" alt="" class="live" class="upload-content">
                 </div>
                 <h4>Upload or Drag Content here</h4>
                 <div class="insertion">

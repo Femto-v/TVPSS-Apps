@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +12,7 @@
 <body>
     <div class="container">
         <div class="logo">
-            <c:url value="../resources/image/jpnj.png" var="logoPath" />
-			<img src="${logoPath}" alt="Logo">
+			<img src="<c:url value='/resources/image/jpnj.png' />" alt="Logo">
         </div>
         <h1>TVPSS</h1>
         <h4>Welcome to our system</h4>
