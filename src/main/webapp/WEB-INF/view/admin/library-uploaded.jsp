@@ -13,18 +13,18 @@
     <div class="header">
         <h1>Content Library</h1>
         <div class="icon-container">
-            <img src="/resources/image/notif.png" alt="Notification Icon" class="notif">
-            <img src="/resources/image/inbox.png" alt="Inbox Icon" class="inbox">
-            <img src="/resources/image/avatar.png" alt="Avatar Icon" class="avatar">
+            <img src="<c:url value='/resources/image/notif.png' />" alt="Notification Icon" class="notif">
+            <img src="<c:url value='/resources/image/inbox.png' />" alt="Inbox Icon" class="inbox">
+            <img src="<c:url value='/resources/image/avatar.png' />" alt="Avatar Icon" class="avatar">
         </div>
     </div>
 
     <div class="sidebar">
         <div class="logo">
-            <img src="/resources/image/kk.png" alt="ministry logo"> <br>
+            <img src="<c:url value='/resources/image/kk.png' />" alt="ministry logo"> <br>
         </div>
         <form action="dashboard" method="get">
-            <button type="submit" class="button button1"><img src="/resources/image/home.png" alt="home logo" class="home"> Dashboard <img src="/resources/image/arrow.png" alt="" class="arrow"></button> <br>
+            <button type="submit" class="button button1"><img src="<c:url value='/resources/image/home.png' />" alt="home logo" class="home"> Dashboard <img src="/resources/image/arrow.png" alt="" class="arrow"></button> <br>
         </form>
         <form action="library" method="get">
             <button type="submit" class="button button2"><img src="/resources/image/library.png" alt="" class="library"> Content Library <img src="/resources/image/arrow.png" alt="" class="arrow"></button> <br>
