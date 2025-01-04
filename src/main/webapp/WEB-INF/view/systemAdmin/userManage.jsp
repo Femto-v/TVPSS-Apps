@@ -12,25 +12,25 @@
     <div class="header">
         <h1>Crew Profile</h1>
         <div class="icon-container">
-            <img src="../image/notif.png" alt="Notification Icon" class="notif">
-            <img src="../image/inbox.png" alt="Inbox Icon" class="inbox">
-            <img src="../image/avatar.png" alt="Avatar Icon" class="avatar">
+            <img src="<c:url value='/resources/image/notif.png' />" alt="Notification Icon" class="notif">
+            <img src="<c:url value='/resources/image/inbox.png' />" alt="Inbox Icon" class="inbox">
+            <img src="<c:url value='/resources/image/avatar.png' />" alt="Avatar Icon" class="avatar">
         </div>
     </div>
 
     <div class="sidebar">
         <div class="logo">
-            <img src="../image/kk.png" alt="ministry logo"> <br>
+            <img src="<c:url value='/resources/image/kk.png' />" alt="ministry logo"> <br>
         </div>
         <form action="user" method="get">
-            <button type="submit" class="button button1"><img src="../image/crew.png" alt="home logo" class="home"> User <img src="../image/arrow.png" alt="" class="arrow"></button> <br>
+            <button type="submit" class="button button1"><img src="<c:url value='/resources/image/crew.png' />" alt="home logo" class="home"> User <img src="../image/arrow.png" alt="" class="arrow"></button> <br>
         </form>
     </div>
 
     <div class="content">
         <div class="container">
             <div class="box">
-                <img src="../image/crewAvatar.png" alt="" class="crew-logo">
+                <img src="<c:url value='/image/crewAvatar.png' />" alt="" class="crew-logo">
                 <div class="personalInfo">
                 </div>
                 <h3>Name</h3>
