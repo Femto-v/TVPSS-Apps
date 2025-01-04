@@ -1,30 +1,28 @@
 package com.example.dao;
 
+import org.springframework.stereotype.Repository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.model.User;
 
+@Repository
 public class UserDao {
-    final private SessionFactory factory;
 
-    public UserDao(SessionFactory factory) {
-        this.factory = factory;
-    }
+    @Autowired
+    private SessionFactory sessionFactory;
 
-    // Save a User object to the database
+    @Transactional
     public void save(User user) {
-        Transaction transaction = null;
-        try (Session session = factory.openSession()) {
-            transaction = session.beginTransaction();
-            session.persist(user);
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
-            System.out.println("error UserDao.java");
-        }
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(user);
     }
 
-    // Additional CRUD methods can be added here
+    @Transactional
+    public User findByEmail(String email) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(User.class, email);
+    }
 }

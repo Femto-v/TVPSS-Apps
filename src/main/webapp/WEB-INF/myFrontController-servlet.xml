@@ -14,7 +14,7 @@
         
         <context:annotation-config />
         <context:component-scan base-package="com.example.controller"></context:component-scan>
-        
+        <context:component-scan base-package="config,com.example.dao,com.example.model" />
         <mvc:annotation-driven/>
         
         <mvc:resources location="/resources/" mapping="/resources**"></mvc:resources>
