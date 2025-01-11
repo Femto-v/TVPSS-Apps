@@ -35,9 +35,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	    http.authorizeRequests()
-	            .antMatchers("/systemAdmin/**").hasRole("RROLE_ADMIN") // Only ADMIN role can access /admin/**
-	            .antMatchers("/admin/**").hasRole("ROLE_TEAM")  // Only SALES role can access /sales/**
-	            .antMatchers("/school/**").hasRole("ROLE_SCHOOL")  // Only USER role can access /user/**
+	            .antMatchers("/systemAdmin/**").hasRole("ADMIN") // Only ADMIN role can access /admin/**
+	            .antMatchers("/admin/**").hasRole("TEAM")  // Only SALES role can access /sales/**
+	            .antMatchers("/school/**").hasRole("SCHOOL")  // Only USER role can access /user/**
 	            .antMatchers("/home/**").authenticated() // Requires login to access ie /home/dashboard
 	            .anyRequest().permitAll()                 // Allow unrestricted access to other URLs
 	            .and()
@@ -45,12 +45,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .loginPage("/login")                         // Custom login page
                     .loginProcessingUrl("/perform_login")        // URL for login processing
                     .successHandler((request, response, authentication) -> {
-                        var roles = authentication.getAuthorities();
-                        if (roles.stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
+                        authentication.getAuthorities().forEach(null);;
+                        if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
                             response.sendRedirect("/systemAdmin/user");
-                        } else if (roles.stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_SCHOOL"))) {
-                        response.sendRedirect("/school/crew");
-                        } else if (roles.stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_TVPSS_TEAM"))) {
+                        } else if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_SCHOOL"))) {
+                            response.sendRedirect("/school/crew");
+                        } else if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_TEAM"))) {
                             response.sendRedirect("/admin/dashboard");
                         } else {
                             response.sendRedirect("/home");

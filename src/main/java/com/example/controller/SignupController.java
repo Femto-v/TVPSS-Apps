@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.model.Authority;
 import com.example.model.User;
-import com.example.dao.UserDao;
+import com.example.repository.UserDao;
 
 @Controller
 public class SignupController {
@@ -29,10 +29,10 @@ public class SignupController {
 	}
 	
 	@PostMapping("/register")
-	public String register(String username, String password, String confirmPassword, String role, Model model) {
+	public String register(String email, String password, String confirmPassword, String role, Model model) {
 	    if (!password.equals(confirmPassword)) {
 	        model.addAttribute("error", "Passwords do not match!");
-	        model.addAttribute("username", username); // To retain entered data
+	        model.addAttribute("username", email); // To retain entered data
 	        return "register"; // Return the registration form with an error
 	    }
 

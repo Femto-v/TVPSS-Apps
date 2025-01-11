@@ -20,7 +20,7 @@
                 <a href=""><img src="<c:url value='/resources/image/inbox.png' />" alt="Inbox Icon" class="inbox"></a>
             </form>
             <form action="">
-                <a href=""><img src="<c:url value='/resources/image/avatar.png' /" alt="Avatar Icon" class="avatar"></a>
+                <a href=""><img src="<c:url value='/resources/image/avatar.png' />" alt="Avatar Icon" class="avatar"></a>
             </form>
         </div>
     </div>
