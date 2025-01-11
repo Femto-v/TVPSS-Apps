@@ -21,6 +21,10 @@
     <!-- Scan for Configuration, Service, Repository, and Entities -->
     <context:component-scan base-package="config,com.example.repository,com.example.model" />
         
+        <mvc:annotation-driven/>
+        
+        <mvc:resources location="/resources/" mapping="/resources**"></mvc:resources>
+        
 <bean id="viewResolver"
 	class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<property name="prefix" value="/WEB-INF/view/" />

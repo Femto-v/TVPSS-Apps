@@ -1,4 +1,4 @@
-package com.example.controller;
+/*package com.example.controller;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -62,4 +62,4 @@ public class SignupController {
 
 	    return "redirect:/login"; // Redirect to login after successful registration
 	}
-}
+}*/

@@ -11,9 +11,7 @@
 <body class="grid place-content-center bg-sky-200 text-base">
     <div class="container grid bg-sky-600 justify-items-center gap-4 rounded text-white">
         <div class="logo size-72">
-			<c:url value="/resources/image/jpnj.png" var="logoPath" />
-            <img src="${logoPath}" alt="Logo" class="">
-
+            <img src="<c:url value='/resources/image/jpnj.png' />" alt="jpnj logo">
         </div>
         <h1 class="font-extrabold text-4xl">TVPSS</h1>
         <h4>Welcome to our system</h4>
