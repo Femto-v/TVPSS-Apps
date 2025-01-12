@@ -1,57 +1,28 @@
 package com.example.repository;
 
-import java.util.List;
-
+import org.springframework.stereotype.Repository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.example.model.User;
 
+@Repository
 public class UserDao {
+
     @Autowired
-	private SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
-    //Complete the full 5 CRUD operations here
-    public List<User> findAll() { // 1 - get all
-        try (Session session = sessionFactory.openSession()) {
-            return session.createQuery("from User", User.class).list();
-        }
-    }
-    
- // 2 - Get a customer by ID
-    public User findByEmail(String email) {
-        try (Session session = sessionFactory.openSession()) {
-            return session.get(User.class, email);
-        }
-    }
-
-    // 3 - Create or save a customer
+    @Transactional
     public void save(User user) {
-        try (Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            session.saveOrUpdate(user);
-            session.getTransaction().commit();
-        }
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(user);
     }
 
-    // 4 - Update a customer
-    public void update(User user) {
-        try (Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            session.update(user);
-            session.getTransaction().commit();
-        }
-    }
-
-    // 5 - Delete a customer
-    public void delete(int id) {
-        try (Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            User user = session.get(User.class, id);
-            if (user != null) {
-                session.delete(user);
-            }
-            session.getTransaction().commit();
-        }
+    @Transactional
+    public User findByEmail(String email) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(User.class, email);
     }
 }

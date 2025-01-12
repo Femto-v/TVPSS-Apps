@@ -7,19 +7,16 @@ import java.util.Set;
 @Table(name = "user")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "firstName", nullable = false)
+    @Column(name = "firstName", nullable = false, length = 100)
     private String firstName;
 
-    @Column(name = "lastName", nullable = false)
+    @Column(name = "lastName", nullable = false, length = 100)
     private String lastName;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true, length = 100)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false, unique = true, length = 100)
     private String password;
 
     @Column(name = "enabled", nullable = false)
@@ -32,23 +29,15 @@ public class User {
 
     }
 
-    public User(int id, String firstName, String lastName, String email, String password) {
-        this.id = id;
+    public User(String firstName, String lastName, String email, String password,boolean enabled) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.enabled = enabled;
     }
 
     // Getters and Setters
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getFirstName() {
         return firstName;
     }

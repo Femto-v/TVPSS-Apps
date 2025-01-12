@@ -41,17 +41,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	            .antMatchers("/home/**").authenticated() // Requires login to access ie /home/dashboard
 	            .anyRequest().permitAll()                 // Allow unrestricted access to other URLs
 	            .and()
+                .csrf(csrf -> csrf.disable())
 	            .formLogin()
                     .loginPage("/login")                         // Custom login page
-                    .loginProcessingUrl("/perform_login")        // URL for login processing
+                    .loginProcessingUrl("admin/login")        // URL for login processing
                     .successHandler((request, response, authentication) -> {
                         authentication.getAuthorities().forEach(null);;
                         if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
                             response.sendRedirect("/systemAdmin/user");
                         } else if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_SCHOOL"))) {
-                            response.sendRedirect("/school/crew");
+                            response.sendRedirect("/school/loginSchool");
                         } else if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_TEAM"))) {
-                            response.sendRedirect("/admin/dashboard");
+                            response.sendRedirect("/admin/login");
                         } else {
                             response.sendRedirect("/home");
                         }

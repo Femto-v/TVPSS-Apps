@@ -1,4 +1,4 @@
-/*package com.example.controller;
+package com.example.controller;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,25 +25,22 @@ public class SignupController {
 	
 	@GetMapping("/register")
 	public String register() {
-		return "register";
+		return "admin/signup";
 	}
 	
 	@PostMapping("/register")
-	public String register(String email, String password, String confirmPassword, String role, Model model) {
-	    if (!password.equals(confirmPassword)) {
-	        model.addAttribute("error", "Passwords do not match!");
-	        model.addAttribute("username", email); // To retain entered data
-	        return "register"; // Return the registration form with an error
-	    }
+	public String register(String firstName, String lastName, String email, String password, String role, Model model) {
 
 	    if (userDAO.findByEmail(email) != null) {
-	        model.addAttribute("error", "Username already exists!");
+	        model.addAttribute("error", "Email already exists!");
 	        model.addAttribute("email", email); // To retain entered data
-	        return "register"; // Return the registration form with an error
+	        return "admin/signup"; // Return the registration form with an error
 	    }
 
 	    // Create User entity
 	    User user = new User();
+		user.setFirstName(firstName);
+		user.setLastName(lastName);
 	    user.setEmail(email);
 	    user.setPassword(passwordEncoder.encode(password));
 	    user.setEnabled(true);
@@ -62,4 +59,5 @@ public class SignupController {
 
 	    return "redirect:/login"; // Redirect to login after successful registration
 	}
-}*/
+
+}
