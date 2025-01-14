@@ -45,9 +45,9 @@
             <div class="box">
                 <img src="<c:url value='/resources/image/logo.png' />" alt="" class="crew-logo">
                 <div class="info">
-                    <h3>Brand name: KENNGAN NUSARI</h3>
-                    <h3>School Name: Sekolah Menengah Kebangsaan Taman Nusari</h3>
-                    <h3>Address: Jalan Nusari 1, Taman Nusari, 81000 Kulai, Johor</h3>
+                    <h3>Brand name: ${school.brandName}</h3>
+                    <h3>School Name: ${school.schoolName}</h3>
+                    <h3>Address: ${school.schoolAddress}</h3>
                     <h3>Level: 1 - Beginner</h3>
                 </div>
                 <table>

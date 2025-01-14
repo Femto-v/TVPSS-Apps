@@ -17,8 +17,12 @@ import java.util.List;
 @Transactional
 public class SchoolDao {
 
+    private final SessionFactory sessionFactory;
+    
     @Autowired
-    private SessionFactory sessionFactory;
+    public SchoolDao(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     public void saveSchool(School school) {
         Session session = sessionFactory.getCurrentSession();
@@ -43,5 +47,13 @@ public class SchoolDao {
     public void deleteSchool(School school) {
         Session session = sessionFactory.getCurrentSession();
         session.delete(school);
+    }
+
+    public void updateSchool(School school) {
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.update(school);
+            session.getTransaction().commit();
+        }
     }
 }

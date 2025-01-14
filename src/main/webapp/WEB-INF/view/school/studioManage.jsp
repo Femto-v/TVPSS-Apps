@@ -45,25 +45,19 @@
             <div class="box">
                 <img src="<c:url value='/resources/image/insert-logo.png' />" alt="" class="crew-logo">
                 <h3>Brand Name</h3>
-                <form action="">
-                    <label for="brand"></label>
-                    <input type="text" placeholder="input name.." class="brand">
-                </form>
+                <form action="editSchool" method="post">
+                    <label for="brandName"></label>
+                    <input type="text" name="brandName" placeholder="input name.." class="brand"">
                 <h3>School Name</h3>
-                <form action="">
-                    <label for="brand"></label>
+                    <label for="schoolName"></label>
                     <input type="text" placeholder="input name.." class="brand">
+                    <h3>School Address</h3>
+                    <label for="schoolAddress"></label>
+                    <input type="text" name="schoolAddress" placeholder="input address.." class="brand">
+                    <div class="buttons">
+                            <button class="view">Update</button>
+                    </div>
                 </form>
-                <h3>School Address</h3>
-                <form action="">
-                    <label for="brand"></label>
-                    <input type="text" placeholder="input address.." class="brand">
-                </form>
-                <div class="">
-                    <form action="studioEquipment" method="get">
-                        <button class="add"><img src="<c:url value='/resources/image/upload.png' />" alt="" class="upload"> Update Equipment</button>
-                    </form>
-                </div>
                 <table>
                     <thead>
                         <tr>
@@ -86,9 +80,9 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="buttons">
-                    <form action="successSchool" method="get">
-                        <button class="view">Upload</button>
+                <div class="">
+                    <form action="studioEquipment" method="get">
+                        <button class="add"><img src="<c:url value='/resources/image/upload.png' />" alt="" class="upload"> Update Equipment</button>
                     </form>
                 </div>
             </div>

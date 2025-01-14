@@ -14,15 +14,19 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
-@Transactional
 public class ProgramDao {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
+    @Autowired
+    public ProgramDao(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+    @Transactional
     public void saveProgram(Program program) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(program);
+        session.saveOrUpdate(program);
     }
 
     public List<Program> getAllPrograms() {

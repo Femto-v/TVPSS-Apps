@@ -76,9 +76,4 @@ public class Crew implements Serializable {
     public void setTaskStatus(String taskStatus) {
         this.taskStatus = taskStatus;
     }
-
-    // Method to generate student ID
-    public static String generateStudentId(int sequence) {
-        return "STU" + String.format("%08d", sequence);
-    }
 }

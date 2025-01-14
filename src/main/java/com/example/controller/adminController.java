@@ -1,8 +1,13 @@
 package com.example.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 
 
@@ -13,6 +18,23 @@ public class adminController {
 	@GetMapping("/login") 
 	public String loginPage(){
 		return "admin/login";
+	}
+
+	@PostMapping("/login")
+	public ModelAndView loginForm() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null && authentication.isAuthenticated()) {
+            if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
+                return new ModelAndView("redirect:/systemAdmin/user");
+            } else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_SCHOOL"))) {
+                return new ModelAndView("redirect:/school/crew");
+            } else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_TEAM"))) {
+                return new ModelAndView("redirect:/dashboard");
+            }
+        }
+        
+        return new ModelAndView("redirect:/home");
 	}
 	
 	@GetMapping("/dashboard")

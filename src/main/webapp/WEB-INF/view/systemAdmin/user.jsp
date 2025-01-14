@@ -49,6 +49,20 @@
                 </tr>
             </thead>
             <tbody>
+                <c:forEach var="user" items="${users}">
+                    <tr>
+                        <td><c:out value="${user.id}"></c:out></td>
+                        <td>${user.firstName} ${user.lastName}</td>
+                        <td><c:out value="${user.email}"></c:out></td>
+                        <td><c:out value="${user.authority.name}"></c:out></td>
+                        <form action="userManage" method="get">
+                        <td><button class="view">Edit</button></td>
+                    </form>
+                    <form action="">
+                        <td><button class="view1">Delete</button></td>
+                    </form>
+                    </tr>
+                </c:forEach>
                 <tr>
                     <td>1</td>
                     <td>Ahmad Hafiz bin Mohd Zain</td>

@@ -45,30 +45,30 @@
             <div class="box">
                 <img src="<c:url value='/resources/image/crewAvatar.png' />" alt="" class="crew-logo">
                 <div class="personalInfo">
-                    <h3>Mohd Faizal bin Abdullah</h3>
-                    <h3>STU20230104</h3>
+                    <h3>***</h3>
+                    <h3>***</h3>
                 </div>
-                <h3>Crew Roles</h3>
-                <form action="roles">
-                    <label for="crew-roles"></label>
-                    <input type="text">
-                </form>
-                <h3>Task</h3>
-                <form action="roles-task">
-                    <label for="crew-task"></label>
-                    <input type="text" class="task">
-                </form>
-                <h3>Status</h3>
-                <form action="roles">
-                    <label for="crew-status"></label>
-                    <select name="status" id="status">
+                <h3>Crew Name</h3>
+                <form action="crew" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required><br>
+
+                    <h3>Crew Id</h3>
+                    <label for="studentId">Student ID:</label>
+                    <input type="text" id="studentId" name="studentId" required><br>
+
+                    <h3>Crew Role</h3>
+                    <label for="role">Role:</label>
+                    <input type="text" id="role" name="role" required><br>
+
+                    <h3>Crew Status</h3>
+                    <label for="taskStatus">Task Status:</label>
+                    <select id="taskStatus" name="taskStatus" required>
                         <option value="incomplete">Incomplete</option>
                         <option value="complete">Complete</option>
                         <option value="onGoing">On Going</option>
                     </select>
-                </form>
-                <div class="buttons">
-                    <form action="successSchool" method="get">
+                    <div class="buttons">
                         <button class="view">Save</button>
                     </form>
                     <form action="crew" method="get">

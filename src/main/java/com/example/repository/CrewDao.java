@@ -1,6 +1,7 @@
 package com.example.repository;
 
 import com.example.model.Crew;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,23 +12,30 @@ import java.util.List;
 @Repository
 public class CrewDao {
 
+    private final SessionFactory sessionFactory;
+
     @Autowired
-    private SessionFactory sessionFactory;
+    public CrewDao(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     
     @Transactional
     public void save(Crew crew) {
-        sessionFactory.getCurrentSession().save(crew);
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(crew);
     }
 
-        @Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public Crew findById(int id) {
         return sessionFactory.getCurrentSession().get(Crew.class, id);
     }
 
     @Transactional(readOnly = true)
     public List<Crew> findAll() {
-        return sessionFactory.getCurrentSession().createQuery("from Crew", Crew.class).list();
+        try (Session session = sessionFactory.openSession()) {
+            return session.createQuery("from Crew", Crew.class).list();
+        }
     }
 
     @Transactional
@@ -41,13 +49,5 @@ public class CrewDao {
         if (crew != null) {
             sessionFactory.getCurrentSession().delete(crew);
         }
-    }
-
-    @Transactional(readOnly = true)
-    public int getLatestSequence() {
-        Integer latestId = (Integer) sessionFactory.getCurrentSession()
-            .createQuery("select max(c.id) from Crew c")
-            .uniqueResult();
-        return latestId != null ? latestId : 0;
     }
 }

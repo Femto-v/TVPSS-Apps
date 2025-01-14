@@ -44,22 +44,16 @@
         <div class="container">
             <div class="box">
                 <h3>Program Name</h3>
-                <form action="">
+                <form action="program" method="post">
                     <label for="program-name"></label>
-                    <input type="text" class="name">
-                </form>
+                    <input type="text" class="name" id="programName" name="programName" required>
                 <h3>Date</h3>
-                <form action="">
                     <label for="program-date"></label>
-                    <input type="date" class="date">
-                </form>
+                    <input type="date" class="date" id="programDate" name="programDate" required>
                 <h3>Description</h3>
-                <form action="">
                     <label for="description"></label>
-                    <input type="text" class="description">
-                </form>
-                <div class="buttons">
-                    <form action="successSchool" method="get">
+                    <input type="text" class="description" id="programDesc" name="programDesc" required>
+                    <div class="buttons">
                         <button class="view">Save</button>
                     </form>
                     <form action="program" method="get">

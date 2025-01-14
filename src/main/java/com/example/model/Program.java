@@ -1,6 +1,7 @@
 package com.example.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "program")
@@ -15,13 +16,18 @@ public class Program {
     @Column(name = "description", nullable = false, length = 200)
     private String programDesc;
 
+    @Column(name = "date", nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date programDate;
+
     public Program() {
 
     }
 
-    public Program(Long id,String programName, String programDesc) {
+    public Program(Long id,String programName, Date programDate, String programDesc) {
         this.id = id;
         this.programName = programName;
+        this.programDate = programDate;
         this.programDesc = programDesc;
     }
 
@@ -44,6 +50,13 @@ public class Program {
     }
     public void setProgDesc(String programDesc) {
         this.programDesc = programDesc;
+    }
+
+    public Date getProgDate() {
+        return programDate;
+    }
+    public void setProgDate(Date progamDate) {
+        this.programDate = progamDate;
     }
     
 }

@@ -50,9 +50,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
                             response.sendRedirect("/systemAdmin/user");
                         } else if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_SCHOOL"))) {
-                            response.sendRedirect("/school/loginSchool");
+                            response.sendRedirect("/school/crew");
                         } else if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_TEAM"))) {
-                            response.sendRedirect("/admin/login");
+                            response.sendRedirect("/admin/dashboard");
                         } else {
                             response.sendRedirect("/home");
                         }
