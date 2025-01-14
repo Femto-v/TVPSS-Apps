@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -27,27 +28,33 @@ public class adminController {
 	@Autowired
 	private LinkDao linkdao;
 
-	@GetMapping("/login") 
-	public String loginPage(){
+	@GetMapping("/login")
+	public String loginPage() {
 		return "admin/login";
 	}
-
+	
 	@PostMapping("/login")
 	public ModelAndView loginForm() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        if (authentication != null && authentication.isAuthenticated()) {
-            if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
-                return new ModelAndView("redirect:/systemAdmin/user");
-            } else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_SCHOOL"))) {
-                return new ModelAndView("redirect:/school/crew");
-            } else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_TEAM"))) {
-                return new ModelAndView("redirect:/dashboard");
-            }
-        }
-        
-        return new ModelAndView("redirect:/home");
+	
+		if (authentication != null && authentication.isAuthenticated()) {
+			String role = authentication.getAuthorities().stream()
+										 .map(GrantedAuthority::getAuthority)
+										 .findFirst()
+										 .orElse(null);
+	
+			if ("ROLE_ADMIN".equals(role)) {
+				return new ModelAndView("redirect:/systemAdmin/user");
+			} else if ("ROLE_SCHOOL".equals(role)) {
+				return new ModelAndView("redirect:/school/crew");
+			} else if ("ROLE_TEAM".equals(role)) {
+				return new ModelAndView("redirect:/admin/dashboard");
+			}
+		}
+	
+		return new ModelAndView("redirect:/home");
 	}
+	
 	
 	@GetMapping("/dashboard")
 	public String dahboardPage() {
