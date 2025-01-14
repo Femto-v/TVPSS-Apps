@@ -1,6 +1,7 @@
 package com.example.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "equipment")
@@ -21,6 +22,11 @@ public class Equipment {
 
     public Equipment(Long id, String name, int quantity) {
         this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+    }
+
+    public Equipment(List<Equipment> equipment, String name, int quantity){
         this.name = name;
         this.quantity = quantity;
     }

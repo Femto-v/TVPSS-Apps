@@ -22,7 +22,7 @@ public class EquipmentDao {
 
     public void saveEquipment(Equipment equipment) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(equipment);
+        session.saveOrUpdate(equipment);
     }
 
     public List<Equipment> getAllEquipment() {

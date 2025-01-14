@@ -53,7 +53,7 @@
                     <input type="search" placeholder="Search">
                     <img src="<c:url value='/resources/image/search.png' />" alt="Search Icon" class="search">
                 </form>
-                <form action="library-uploaded" method="get">
+                <form action="library-uploadedSchool" method="get">
                     <button class="add"><img src="<c:url value='/resources/image/upload.png' />" alt="" class="upload"> Add New Content</button>
                 </form>
             </div>

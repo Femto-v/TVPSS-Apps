@@ -14,7 +14,6 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
-@Transactional
 public class SchoolDao {
 
     private final SessionFactory sessionFactory;
@@ -24,9 +23,10 @@ public class SchoolDao {
         this.sessionFactory = sessionFactory;
     }
 
+    @Transactional
     public void saveSchool(School school) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(school);
+        session.saveOrUpdate(school);
     }
 
     public List<School> getAllSchools() {

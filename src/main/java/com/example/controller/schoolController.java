@@ -5,13 +5,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.List;
 import org.springframework.ui.Model;
+
+import com.example.model.Content;
 import com.example.model.Crew;
+import com.example.model.Equipment;
 import com.example.repository.CrewDao;
 import com.example.model.Program;
 import com.example.repository.ProgramDao;
 import com.example.model.School;
 import com.example.repository.SchoolDao;
+import com.example.repository.EquipmentDao;
+import com.example.repository.LinkDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -29,6 +35,12 @@ public class schoolController {
 
 	@Autowired
 	private SchoolDao schooldao;
+
+	@Autowired
+	private EquipmentDao equipmentDao;
+
+	@Autowired
+	private LinkDao linkdao;
 
 	@GetMapping("/loginSchool") 
 	public String loginPage(){
@@ -77,9 +89,19 @@ public class schoolController {
 		return "school/library-recently";
 	}
 	
-	@GetMapping("library-uploadedSchool")
+	@GetMapping("/library-uploadedSchool")
 	public String uploadContentPage() {
 		return "school/library-uploaded";
+	}
+
+	@PostMapping("/library-uploaded")
+	public String uploadContent(String name, String desc, String link) {
+		Content content = new Content();
+		content.setName(name);
+		content.setDesc(desc);
+		content.setLink(link);
+		linkdao.save(content);
+		return "redirect:/librarySchool";
 	}
 	
 	@GetMapping("library-videoSchool")
@@ -119,19 +141,33 @@ public class schoolController {
 		return "school/studio";
 	}
 
-	@PostMapping("/editSchool")
+	/*@PostMapping("/editSchool")
 	public String editStudio(@ModelAttribute School school) {
 		schooldao.updateSchool(school);
 		return "redirect:/studio";
-	}
+	}*/
 	
 	@GetMapping("/studioEquipment")
-	public String studioEquipmentPage() {
-		return "school/studioEquipment";
-	}
+    public String studioEquipmentPage(Model model) {
+		List<Equipment> equipmentList = equipmentDao.getAllEquipment();
+		model.addAttribute("equipmentList", equipmentList);
+        return "school/studioEquipment";
+    }
+
+    @PostMapping("/studioEquipment")
+    public String updateEquipment(@ModelAttribute("equipment") List<Equipment> equipmentList, String name, int quantity) {
+		for (Equipment equipment : equipmentList) {
+			equipment.setName(name);
+			equipment.setQuantity(quantity);
+			equipmentDao.saveEquipment(equipment);
+		}
+        return "redirect:/studioManage";
+    }
 	
 	@GetMapping("/studioManage")
-	public String studioManagePage() {
+	public String studioManagePage(Model model) {
+		List<Equipment> equipmentList = equipmentDao.getAllEquipment();
+    	model.addAttribute("equipmentList", equipmentList);
 		return "school/studioManage";
 	}
 	

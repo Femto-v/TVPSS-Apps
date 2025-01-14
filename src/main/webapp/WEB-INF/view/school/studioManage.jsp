@@ -66,6 +66,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <c:forEach var="equipment" items="${equipmentList}">
+                        <tr>
+                            <td>${equipment.name}</td>
+                            <td>${equipment.quantity}</td>
+                        </tr>
+                        </c:forEach>
                         <tr>
                             <td>Smartphone</td>
                             <td>11</td>

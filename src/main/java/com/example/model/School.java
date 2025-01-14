@@ -14,7 +14,7 @@ public class School {
     @Column(name = "name", nullable = false, length = 100)
     private String schoolName;
 
-    @Column(name = "address", nullable = false, unique = true, length = 100)
+    @Column(name = "address", nullable = false, length = 100)
     private String schoolAddress;
 
     @Column(name = "brand", nullable = false, length = 100)
@@ -28,12 +28,6 @@ public class School {
         this.schoolName = schoolName;
         this.schoolAddress = schoolAddress;
         this.brandName = brandName;
-    }
-
-    public School(String brandName, String schoolName, String schoolAddress) {
-        this.brandName = brandName;
-        this.schoolName = schoolName;
-        this.schoolAddress = schoolAddress;
     }
 
     public Long getId() {

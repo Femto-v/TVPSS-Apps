@@ -43,8 +43,10 @@
         </form>
     </div>
 
-
     <div class="content">
+        <form action="schoolManage" method="get">
+            <button class="view">+ Add User</button>
+        </form>
         <table>
             <thead>
                 <tr>

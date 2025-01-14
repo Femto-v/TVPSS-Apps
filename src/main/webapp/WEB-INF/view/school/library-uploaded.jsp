@@ -49,17 +49,17 @@
                 </div>
                 <h4>Upload or Drag Content here</h4>
                 <div class="insertion">
-                    <form action="">
+                    <form action="library-uploaded" method="post">
                         <h5>Title</h5>
                         <input type="text" placeholder="Insert Title..." class="title">
                         <h5>Description</h5>
                         <input type="text" placeholder="Insert Description.." class="desc">
-                    </form>
+                        <h5>Link</h5>
+                        <input type="text" placeholder="Insert Link.." class="title">
                 </div>
                         <div class="buttons">
-                            <form action="successSchool" method="get">
                             <button class="view">Upload</button>
-                            </form>
+                    </form>
                             <form action="librarySchool" method="get">
                             <button class="view1">Cancel</button>
                             </form>

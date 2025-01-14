@@ -41,22 +41,27 @@
         <div class="container">
             <div class="box">
                 <img src="<c:url value='/resources/image/logo.png' />" alt="" class="school-logo">
-                <h3>School Name</h3>
-                <h3 class="school">Sekolah Menengah Kebangsaan Taman Nusari</h3>
-                <h3>School Address</h3>
-                <h3 class="school">Jalan Nusari 1, Taman Nusari, 81000 Kulai, Johor</h3>
-                <h3>School Program</h3>
-                <h3 class="school">Insight Journalism Club: Students create videos on scientific experiments, explaining various concepts in a way that’s both educational and engaging for young audiences.</h3>
-                <div class="buttons">
-                    <form action="schoolStud" method="get">
-                        <button class="view">View Studio</button>
-                    </form>
-                    <form action="dashboard" method="get">
+                <form action="dashboard" method="post">
+                    <h3>School Name</h3>
+                    <label for="schoolName">Name:</label>
+                    <input type="text" id="schoolName" name="schoolName" required><br>
+
+                    <h3>School Address</h3>
+                    <label for="schoolAddress">Address:</label>
+                    <input type="text" id="schoolAddress" name="schoolAddress" required><br>
+
+                    <h3>Brand Name</h3>
+                    <label for="brandName">Brand:</label>
+                    <input type="text" id="brandName" name="brandName" required><br>
+                    <div class="buttons">
+                        <button class="view">Save</button>
+                        </form>
+                        <form action="dashboard" method="get">
                         <button class="view1">Cancel</button>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 </html>

@@ -46,82 +46,68 @@
                 <h1>Update Equipment</h1>
                 <div class="rows">
                     <div class="first-row">
-                        <form action="">
+                        <form action="studioEquipment" method="post">
+                            <!-- Equipment Items -->
                             <h3>Smartphone</h3>
-                            <label for="smartphone"></label>
-                            <input type="number">
-                        </form>
-                        <form action="">
+                            <input type="hidden" name="equipmentList[0].name" value="Smartphone">
+                            <input type="number" name="equipmentList[0].quantity" min="0">
+                            
+                            <h3>Ring Light</h3>
+                            <input type="hidden" name="equipmentList[1].name" value="Ring Light">
+                            <input type="number" name="equipmentList[1].quantity" min="0">
+                            
                             <h3>Webcam</h3>
-                            <label for="webcam"></label>
-                            <input type="number">
-                        </form>
-                        <form action="">
+                            <input type="hidden" name="equipmentList[2].name" value="Webcam">
+                            <input type="number" name="equipmentList[2].quantity" min="0">
+                            
+                            <h3>Mobile Lighting</h3>
+                            <input type="hidden" name="equipmentList[3].name" value="Mobile Lighting">
+                            <input type="number" name="equipmentList[3].quantity" min="0">
+                            
                             <h3>Camera</h3>
-                            <label for="camera"></label>
-                            <input type="number">
-                        </form>
-                        <form action="">
+                            <input type="hidden" name="equipmentList[4].name" value="Camera">
+                            <input type="number" name="equipmentList[4].quantity" min="0">
+                            
+                            <h3>3 Point Lighting</h3>
+                            <input type="hidden" name="equipmentList[5].name" value="3 Point Lighting">
+                            <input type="number" name="equipmentList[5].quantity" min="0">
+                            
                             <h3>Clip Microphone</h3>
-                            <label for="clip-microphone"></label>
-                            <input type="number">
-                        </form>
-                        <form action="">
-                            <h3>Wireless Microphone</h3>
-                            <label for="wireless-microphone"></label>
-                            <input type="number">
-                        </form>
-                        <form action="">
-                            <h3>Monopod</h3>
-                            <label for="monopod"></label>
-                            <input type="number">
-                        </form>
-                        <form action="">
-                            <h3>Tripod</h3>
-                            <label for="tripod"></label>
-                            <input type="number">
-                        </form>
+                            <input type="hidden" name="equipmentList[6].name" value="Clip Microphone">
+                            <input type="number" name="equipmentList[6].quantity" min="0">
                     </div>
                     <div class="second-row">
-                        <form action="">
-                            <h3>Ring Light</h3>
-                            <label for="smartphone"></label>
-                            <input type="number">
-                        </form>
-                        <form action="">
-                            <h3>Mobile Lighting</h3>
-                            <label for="webcam"></label>
-                            <input type="number">
-                        </form>
-                        <form action="">
-                            <h3>3 Point Lighting</h3>
-                            <label for="camera"></label>
-                            <input type="number">
-                        </form>
-                        <form action="">
-                            <h3>Clip Mobile Green Screen Set</h3>
-                            <label for="clip-microphone"></label>
-                            <input type="number">
-                        </form>
-                        <form action="">
-                            <h3>Green Screen</h3>
-                            <label for="wireless-microphone"></label>
-                            <input type="number">
-                        </form>
-                        <form action="">
-                            <h3>Editing Software (Open Source)</h3>
-                            <label for="monopod"></label>
-                            <input type="number">
-                        </form>
-                        <form action="">
-                            <h3>Editing Software (Pro/Paid Version)</h3>
-                            <label for="tripod"></label>
-                            <input type="number">
-                        </form>
-                    </div>
+                        <h3>Clip Mobile Green Screen Set</h3>
+                        <input type="hidden" name="equipmentList[7].name" value="Clip Mobile Green Screen Set">
+                        <input type="number" name="equipmentList[7].quantity" min="0">
+                        
+                        <h3>Wireless Microphone</h3>
+                        <input type="hidden" name="equipmentList[8].name" value="Wireless Microphone">
+                        <input type="number" name="equipmentList[8].quantity" min="0">
+                        
+                        <h3>Green Screen</h3>
+                        <input type="hidden" name="equipmentList[9].name" value="Green Screen">
+                        <input type="number" name="equipmentList[9].quantity" min="0">
+                        
+                        <h3>Monopod</h3>
+                        <input type="hidden" name="equipmentList[10].name" value="Monopod">
+                        <input type="number" name="equipmentList[10].quantity" min="0">
+                        
+                        <h3>Editing Software (Open Source)</h3>
+                        <input type="hidden" name="equipmentList[11].name" value="Editing Software (Open Source)">
+                        <input type="number" name="equipmentList[11].quantity" min="0">
+                        
+                        <h3>Tripod</h3>
+                        <input type="hidden" name="equipmentList[12].name" value="Tripod">
+                        <input type="number" name="equipmentList[12].quantity" min="0">
+                        
+                        <h3>Editing Software (Pro/Paid Version)</h3>
+                        <input type="hidden" name="equipmentList[13].name" value="Editing Software (Pro/Paid Version)">
+                        <input type="number" name="equipmentList[13].quantity" min="0">
+                        
+                        </div>    
                 </div>
                 <div class="buttons">
-                    <form action="successSchool" method="get">
                         <button class="view">Save</button>
                     </form>
                     <form action="studioManage" method="get">

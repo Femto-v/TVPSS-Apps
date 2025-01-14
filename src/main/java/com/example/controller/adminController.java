@@ -8,12 +8,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.model.Content;
+import com.example.model.School;
+import com.example.repository.SchoolDao;
+import com.example.repository.LinkDao;
 
 
 
 @Controller
 @RequestMapping("/")
 public class adminController {
+
+	@Autowired
+	private SchoolDao schooldao;
+
+	@Autowired
+	private LinkDao linkdao;
 
 	@GetMapping("/login") 
 	public String loginPage(){
@@ -40,6 +52,17 @@ public class adminController {
 	@GetMapping("/dashboard")
 	public String dahboardPage() {
 		return "admin/dashboard";
+	}
+
+	@PostMapping("/dashboard")
+	public String addSchool(String schoolName, String schoolAddress, String brandName) {
+		School school = new School();
+		school.setSchoolName(schoolName);
+		school.setSchoolAddress(schoolAddress);
+		school.setBrandName(brandName);
+		schooldao.saveSchool(school);
+
+		return "redirect:/dashboard";
 	}
 	
 	@GetMapping("/library")
@@ -77,12 +100,22 @@ public class adminController {
 		return "admin/library-recently";
 	}
 	
-	@GetMapping("library-uploaded")
+	@GetMapping("/library-uploaded")
 	public String uploadContentPage() {
 		return "admin/library-uploaded";
 	}
+
+	@PostMapping("/upload")
+	public String uploadContent(String name, String desc, String link) {
+		Content content = new Content();
+		content.setName(name);
+		content.setDesc(desc);
+		content.setLink(link);
+		linkdao.save(content);
+		return "redirect:/library-uploaded";
+	}
 	
-	@GetMapping("library-video")
+	@GetMapping("/library-video")
 	public String videoFilterPage() {
 		return "admin/library-video";
 	}
