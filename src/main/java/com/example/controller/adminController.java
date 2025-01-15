@@ -5,10 +5,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.model.Content;
@@ -29,32 +33,20 @@ public class adminController {
 	private LinkDao linkdao;
 
 	@GetMapping("/login")
-	public String loginPage() {
-		return "admin/login";
-	}
-	
-	@PostMapping("/login")
-	public ModelAndView loginForm() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-	
-		if (authentication != null && authentication.isAuthenticated()) {
-			String role = authentication.getAuthorities().stream()
-										 .map(GrantedAuthority::getAuthority)
-										 .findFirst()
-										 .orElse(null);
-	
-			if ("ROLE_ADMIN".equals(role)) {
-				return new ModelAndView("redirect:/systemAdmin/user");
-			} else if ("ROLE_SCHOOL".equals(role)) {
-				return new ModelAndView("redirect:/school/crew");
-			} else if ("ROLE_TEAM".equals(role)) {
-				return new ModelAndView("redirect:/admin/dashboard");
-			}
-		}
-	
-		return new ModelAndView("redirect:/home");
-	}
-	
+    public String loginPage(HttpServletRequest request, Model model) {
+        // Add debug logging
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            System.out.println("Current user: " + auth.getName());
+            System.out.println("Authorities: " + auth.getAuthorities());
+        }
+        
+        if (request.getParameter("error") != null) {
+            model.addAttribute("error", "Invalid username or password");
+        }
+        
+        return "admin/login";  // Make sure this matches your view resolver configuration
+    }
 	
 	@GetMapping("/dashboard")
 	public String dahboardPage() {

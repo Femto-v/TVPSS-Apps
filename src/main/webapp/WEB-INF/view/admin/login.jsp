@@ -15,7 +15,7 @@
         </div>
         <h1 class="font-extrabold text-4xl">TVPSS</h1>
         <h4>Welcome to our system</h4>
-        <form action="login" method="post" class="grid place-items-center">
+        <form action="perform_login" method="post" class="grid place-items-center">
     		<input type="email" class="text-black p-2 text-xs rounded border border-black" name="email" placeholder="Enter email" required> <br>
     		<input type="password" class="text-black p-2 text-xs rounded border border-black" name="password" placeholder="Enter password" required> <br>
     		<button type="submit" class="px-3 py-1 bg-sky-400 rounded font-semibold">Login</button>

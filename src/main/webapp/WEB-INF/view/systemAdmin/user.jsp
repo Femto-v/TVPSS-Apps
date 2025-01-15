@@ -50,19 +50,29 @@
             </thead>
             <tbody>
                 <c:forEach var="user" items="${users}">
-                    <tr>
-                        <td><c:out value="${user.id}"></c:out></td>
-                        <td>${user.firstName} ${user.lastName}</td>
-                        <td><c:out value="${user.email}"></c:out></td>
-                        <td><c:out value="${user.authority.name}"></c:out></td>
-                        <form action="userManage" method="get">
-                        <td><button class="view">Edit</button></td>
-                    </form>
-                    <form action="">
-                        <td><button class="view1">Delete</button></td>
-                    </form>
-                    </tr>
+        <tr>
+            <td><c:out value="${status.index + 1}" /></td>
+            <td><c:out value="${user.firstName}" /> <c:out value="${user.lastName}" /></td>
+            <td><c:out value="${user.email}" /></td>
+            <td>
+                <c:forEach var="authority" items="${user.authorities}">
+                    <c:out value="${authority.authority}" />
+                    <br/>
                 </c:forEach>
+            </td>
+            <td>
+                <form action="userManage" method="get">
+                    <button class="view">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form action="deleteUser" method="post">
+                    <input type="hidden" name="email" value="${user.email}" />
+                    <button class="view1" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </c:forEach>
                 <tr>
                     <td>1</td>
                     <td>Ahmad Hafiz bin Mohd Zain</td>

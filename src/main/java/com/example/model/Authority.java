@@ -14,7 +14,7 @@ public class Authority {
     private String authority;
 
     @ManyToOne
-    @JoinColumn(name = "email", nullable = false)
+    @JoinColumn(name = "email", nullable = false) // Maps to User's primary key
     private User user;
     
     public Authority() {

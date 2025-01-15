@@ -22,51 +22,52 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	DataSource dataSource;
 
 
-	@Override
+    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
             .dataSource(dataSource)
             .passwordEncoder(new BCryptPasswordEncoder())
-            .usersByUsernameQuery("SELECT email, password FROM users WHERE email = ?")
-            .authoritiesByUsernameQuery("SELECT email, authority FROM authorities WHERE email = ?");
+            .usersByUsernameQuery(
+                "SELECT email as username, password, true as enabled FROM user WHERE email = ?")
+            .authoritiesByUsernameQuery(
+                "SELECT email as username, authority FROM authorities WHERE email = ?")
+            .and()
+            .eraseCredentials(false);  // This allows us to see password issues
     }
-
 	
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-	    http.authorizeRequests()
-	            .antMatchers("/systemAdmin/**").hasRole("ADMIN") // Only ADMIN role can access /admin/**
-	            .antMatchers("/admin/**").hasRole("TEAM")  // Only SALES role can access /sales/**
-	            .antMatchers("/school/**").hasRole("SCHOOL")  // Only USER role can access /user/**
-	            .antMatchers("/home/**").authenticated() // Requires login to access ie /home/dashboard
-	            .anyRequest().permitAll()                 // Allow unrestricted access to other URLs
-	            .and()
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/resources/**").permitAll()
+                .antMatchers("/systemAdmin/**").hasRole("ADMIN")
+                .antMatchers("/school/**").hasRole("SCHOOL")
+                .antMatchers("/admin/**").hasRole("TEAM")
+                .antMatchers("/home/**").authenticated()
+                .anyRequest()
+                .permitAll()
+                .and()
                 .csrf(csrf -> csrf.disable())
-	            .formLogin()
-                    .loginPage("/login")                         // Custom login page
-                    .loginProcessingUrl("admin/login")        // URL for login processing
+                .formLogin()       
                     .successHandler((request, response, authentication) -> {
-                        authentication.getAuthorities().forEach(null);;
-                        if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
-                            response.sendRedirect("/systemAdmin/user");
-                        } else if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_SCHOOL"))) {
-                            response.sendRedirect("/school/crew");
-                        } else if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_TEAM"))) {
-                            response.sendRedirect("/admin/dashboard");
+                        var roles = authentication.getAuthorities();
+                        if (roles.stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
+                            response.sendRedirect("/tvpss/user");
+                        } else if (roles.stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_SCHOOL"))) {
+                            response.sendRedirect("/tvpss/crew");
+                        } else if (roles.stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_TEAM"))) {
+                            response.sendRedirect("/tvpss/dashboard");
                         } else {
                             response.sendRedirect("/home");
                         }
                     })
-                .permitAll()
+                    .permitAll()
                 .and()
-            .logout()
-            	.logoutUrl("/logout") // The actual logout endpoint
-            	//.logoutSuccessUrl("/home/out") // Redirect to this page after successfully logged out
-                .permitAll();
-	}
-
-
-
+                .logout()
+                    .logoutUrl("/logout")
+                    //.logoutSuccessUrl("/login?logout=true")
+                    .permitAll();
+    }
+    
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {

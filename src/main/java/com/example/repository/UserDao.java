@@ -25,11 +25,11 @@ public class UserDao {
     }
 
     @Transactional
-    public List<User> findAll() {
-        try (Session session = sessionFactory.openSession()) {
-            return session.createQuery("from User", User.class).list();
-        }
+public List<User> findAll() {
+    try (Session session = sessionFactory.openSession()) {
+        return session.createQuery("from User u join fetch u.authorities", User.class).list();
     }
+}
 
     @Transactional
     public User findByEmail(String email) {

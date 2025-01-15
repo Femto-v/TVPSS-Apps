@@ -7,23 +7,23 @@ import java.util.Set;
 @Table(name = "user")
 public class User {
     @Id
+    @Column(name = "email", nullable = false, unique = true, length = 100)
+    private String email; // Primary key
+
     @Column(name = "firstName", nullable = false, length = 100)
     private String firstName;
 
     @Column(name = "lastName", nullable = false, length = 100)
     private String lastName;
 
-    @Column(name = "email", nullable = false, unique = true, length = 100)
-    private String email;
-
-    @Column(name = "password", nullable = false, unique = true, length = 100)
+    @Column(name = "password", nullable = false, length = 100)
     private String password;
 
     @Column(name = "enabled", nullable = false)
-	private boolean enabled;
+    private boolean enabled;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	    private Set<Authority> authorities;
+    private Set<Authority> authorities;
 
     public User() {
 
